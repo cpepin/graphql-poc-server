@@ -15,3 +15,14 @@ All three servers (including this one) can be started using `mvn spring-boot:run
 The GraphQL server exposes an in-browser IDE for exploring GraphQL called graphiql.  You can
 access this by going to http://localhost:8080/graphiql in your browser.  This web app exposes
 docs, which will show you all of the available queries/mutations/types.
+
+## What this covers
+* Types
+* Queries
+* Mutations
+* data-loader (IMPORTANT FOR PERFORMANCE)
+
+## Things I could (and probably should) add
+* Input types
+* Subscriptions (which I'm not sure are implemented in Java yet)
+* Testing
