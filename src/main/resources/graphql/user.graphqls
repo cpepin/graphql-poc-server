@@ -1,0 +1,21 @@
+type Customer {
+    id: ID!
+    name: String!
+    location: String!
+}
+
+type User {
+    id: ID!
+    name: String!
+    customerId: String!
+    customer: Customer!
+}
+
+type Query {
+    getAllUsers: [User!]!
+    getUserById(id: String): User!
+}
+
+type Mutation {
+    createUser(name: String!, customerId: String!): User!
+}
