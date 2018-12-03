@@ -27,7 +27,6 @@ class UserClient(
     }
 
     fun createUser(name: String, customerId: String): User? {
-        System.out.println(name);
         val request = RequestEntity
                 .post(URI.create("http://localhost:8081/users"))
                 .body(User(name = name, customerId = customerId, id = ""))
