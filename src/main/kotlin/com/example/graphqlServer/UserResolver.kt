@@ -17,6 +17,9 @@ class UserResolver (
 
         return dataLoader.load(user.customerId)
 
+        // Checkout CustomGraphQLContext to view the data loader.  The less efficient way to
+        // resolve customer data is commented out below.
+
         // customerClient.getCustomerById(user.customerId);
     }
 }

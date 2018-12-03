@@ -40,6 +40,16 @@ class CustomGraphQLContext(private val customerClient: CustomerClient) : GraphQL
         return context
     }
 
+    /*
+     * Some fun with data-loaders here.  You need to expose a registry of loaders to the
+     * GQL context, so that queries/mutations/resolves can use them.  In this case, I am
+     * only creating a single data-loader, "customerDataLoader".
+     *
+     * In this case, data-loader keeps a map in memory that memoizes the REST
+     * calls the customer client.  So if you have already filled in the customer data for a user
+     * with `customerId: 1`, GraphQL will recognize it and provide the data from the in-memory
+     * cache.
+     */
     private fun buildDataLoaderRegistry(): DataLoaderRegistry {
         val dataLoaderRegistry = DataLoaderRegistry()
         val customerBatchLoader = BatchLoader<String, Customer> { customerIds ->
